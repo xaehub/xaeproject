@@ -253,7 +253,7 @@
 
         .saveddate {
             width: 10%;
-            font-size: 20px;
+            font-size: 15px;
             color: #566270;
             display: flex;
             align-items: center;
@@ -422,7 +422,7 @@
             let docId = doc.id;
             let name = row['name'];
             let comment = row['comment'];
-            let date = row['date'].split(',')[0];
+            let date = row['date'];
 
             let temp_html = `
                 <div class="comment-box" id="${docId}">
