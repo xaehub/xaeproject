@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5조</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gowun+Dodum&family=Nanum+Gothic+Coding&display=swap');
@@ -19,32 +20,43 @@
         .pictures {
             display: flex;
             gap: 30px;
-            justify-content: center; /* 가로 중앙 정렬 */
-            padding: 20px; /* 사진과 팀원 이름 사이 간격 */
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            padding: 20px;
+            /* 사진과 팀원 이름 사이 간격 */
         }
 
         .profile {
-            display: flex; /* 가로 정렬 */
-            flex-direction: column; /* 세로 정렬 */
-            align-items: center; /* 세로 중앙 정렬 */
+            display: flex;
+            /* 가로 정렬 */
+            flex-direction: column;
+            /* 세로 정렬 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
         }
 
         .profile img {
             width: 120px;
             height: 120px;
-            border-radius: 50%; /* 완전한 원형 */
-            object-fit: cover; /* 비율 유지하며 꽉 채우기 */
-            border: 1px solid #ddd; /* 테두리 추가 */
-            transition: transform 0.3s ease-in-out; /* 호버 시 애니메이션 효과 */
+            border-radius: 50%;
+            /* 완전한 원형 */
+            object-fit: cover;
+            /* 비율 유지하며 꽉 채우기 */
+            border: 1px solid #ddd;
+            /* 테두리 추가 */
+            transition: transform 0.3s ease-in-out;
+            /* 호버 시 애니메이션 효과 */
         }
 
         .profile img:hover {
-            transform: scale(1.1); /* 호버 시 이미지 확대 */
+            transform: scale(1.1);
+            /* 호버 시 이미지 확대 */
         }
 
         .name {
             text-align: center;
-            margin-top: 10px; /* 이미지와 이름 사이 간격 */
+            margin-top: 10px;
+            /* 이미지와 이름 사이 간격 */
         }
 
         .teamName {
@@ -72,7 +84,128 @@
         }
 
         .input-container {
-            margin: 30px 100px 100px 100px; /* 위, 아래 30px | 좌, 우 100px */
+            margin: 0px 100px 0px 100px;
+            /* 위, 아래 30px | 좌, 우 100px */
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            justify-content: start;
+        }
+
+        /* 인풋 박스를 감싸는 div */
+        .input-box {
+            position: relative;
+            /* 자식 요소의 위치를 상대적으로 설정 */
+            width: 15%;
+            /* Name 입력 필드 */
+        }
+
+        .comment-title {
+            position: relative;
+            /* 자식 요소의 위치를 상대적으로 설정 */
+            width: 75%;
+            /* Comment 입력 필드 */
+        }
+
+        /* 개별 댓글 박스 */
+        .comment-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+        }
+
+        /* 라벨 스타일 */
+        .input-box label,
+        .comment-title label {
+            font-size: 20px;
+            color: #566270;
+            font-weight: bold;
+            padding-left: 5px;
+        }
+
+        /* 입력 필드 스타일 (밑줄만 보이도록) */
+        .input-box input,
+        .comment-title input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 2px solid #E0E3DA;
+            /* 밑줄만 표시 */
+            outline: none;
+            font-size: 18px;
+            background: transparent;
+        }
+
+        /* 등록 버튼 스타일 */
+        .submit-btn {
+            padding: 8px 15px;
+            /* 상하 8px 좌우 15px */
+            width: 10%;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            background: #A593E0;
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            /* 호버 시 부드럽게 색상 변경 */
+        }
+
+        .submit-btn:hover {
+            background: #566270;
+            /* 조금 더 어두운 보라색 */
+        }
+
+        .commentslist {
+            margin: 10px 80px 100px 80px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: flex-end;
+            font-size: 30px;
+            color: #566270;
+        }
+
+        .savedname {
+            width: 15%;
+            font-size: 30px;
+            display: flex;
+            color: #A593E0;
+            align-items: center;
+            justify-content: start;
+        }
+
+        .savedcomment {
+            width: 65%;
+            padding-left: 20px;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+
+        .saveddate {
+            width: 10%;
+            font-size: 20px;
+            color: #566270;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .deletecomment {
+            width: 10%;
+            color: rgb(190, 31, 31);
+            border: none;
+            font-size: 15px;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
         }
 
         .list-group-item {
@@ -99,8 +232,6 @@
             100% {
                 color: palevioletred;
             }
-
-            /* 다시 원래 색으로 */
         }
 
         .animated-text {
@@ -109,6 +240,88 @@
             font-weight: bold;
         }
     </style>
+
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_yWpgUZ5IAbaqBQqS5lpxrncqaJHxOTk",
+            authDomain: "sparta-3b35c.firebaseapp.com",
+            projectId: "sparta-3b35c",
+            storageBucket: "sparta-3b35c.firebasestorage.app",
+            messagingSenderId: "821288173768",
+            appId: "1:821288173768:web:cf10e7700c29e7d872e5fd",
+            measurementId: "G-C40QMCEYYJ"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        $("#savecomment").click(async function () {
+            let name = $('#name').val();
+            let comment = $('#comment').val();
+            let date = new Date().toLocaleString();
+
+            if (!name || !comment) {
+                alert('이름과 댓글을 입력해주세요.');
+                return;
+            }
+
+            let doc = {
+                'name': name,
+                'comment': comment,
+                'date': date
+            };
+            await addDoc(collection(db, "comments"), doc);
+            window.location.reload();
+        })
+
+        // orderBy()는 Firestore(Firebase Firestore)에서 제공하는 기능
+        // Firebase Firestore의 쿼리 기능 중 하나 : Firestore에서 데이터를 정렬해서 가져올 때 사용하는 쿼리(Query) 기능
+        let q = query(collection(db, "comments"), orderBy("date", "desc")); // 최신순 정렬
+        let docs = await getDocs(q);
+
+        docs.forEach((doc) => {
+            let row = doc.data();
+            let docId = doc.id;
+            let name = row['name'];
+            let comment = row['comment'];
+            let date = row['date'].split(',')[0];
+
+            let temp_html = `
+                <div class="comment-box" id="${docId}">
+                    <div class="savedname">${name}</div>
+                    <div class="savedcomment">${comment}</div>
+                    <div class="saveddate">${date}</div>
+                    <button class="deletecomment" data-id="${docId}" id="deletecomment">delete</button>
+                </div>
+                `;
+            $('#commentslist').append(temp_html);
+        });
+        // $("#deletecomment").click(function() 안되는 이유 : 
+        // 정적으로 존재하는 요소에만 동작함. 동적으로 추가된 요소에는 동작하지 않음.(댓글이 추가되는 것은 동적으로 추가되는 것)
+        // 해서, document 전체에 클릭 이벤트를 등록하여 동적으로 추가되는 요소에도 동작하도록 함.
+        $(document).on("click", ".deletecomment", async function () { 
+            let docId = $(this).attr("data-id"); //클릭한 부분이 .deletecomment 버튼의 data-id 값 가져오기
+            // attr() : 선택한 요소의 속성값을 가져오거나 속성값을 설정하는 메서드
+
+            if (confirm("정말로 삭제하시겠습니까?")) {
+                await deleteDoc(doc(db, "comments", docId));
+                $(`${docId}`).remove();
+                window.location.reload();
+            }
+        })
+
+    </script>
 </head>
 
 <body>
@@ -172,18 +385,32 @@
             <li class="list-group-item">4. <span style="color:blueviolet">TIL</span> 남은날까지 맨날 쓰기 📝</li>
         </ul>
     </div>
+
+    <!-- 댓글 입력 박스 -->
+    <h1 style="color: #566270; margin: 30px 100px 0px 100px;">COMMENTS</h1>
     <div class="input-container">
-        <h1>Comments</h1>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="name" aria-label="writer"
-                aria-describedby="button-addon2" style="flex: 2.5;">
-            <input type="text" class="form-control" placeholder="comment" aria-label="comment"
-                aria-describedby="button-addon2" style="flex: 7.5;">
-            <button class="btn btn-secondary" type="button" id="button-addon2">등록</button>
+        <!-- Name 입력 박스 -->
+        <div class="input-box">
+            <label for="name">name</label>
+            <input type="text" id="name">
         </div>
+
+        <!-- Comment 입력 박스 -->
+        <div class="comment-title">
+            <label for="comment">Comment</label>
+            <input type="text" id="comment">
+        </div>
+        <!-- 등록 버튼 -->
+        <button class="submit-btn" id="savecomment">등록</button>
     </div>
-
-
+    <!-- 여기에 댓글이 추가 -->
+    <div class="commentslist" id="commentslist">
+        <!-- 
+        <div class="savedname">name</div>
+        <div class="savedcomment">comment</div>
+        <div class="saveddate">date</div>
+        <button class="deletecomment" data-id="${docId}" id="deletecomment">delete</button>
+        -->
+    </div>
 </body>
-
 </html>
