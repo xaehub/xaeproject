@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5조 팀 소개</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+        * {
+            font-family: "Jua", serif;
+            font-weight: 400;
+            font-style: inherit;
+        }
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .album {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-info h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .card-info p {
+            color: #777;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background-color: antiquewhite;
+        }
+
+
+
+        .new-box {
+            background-color: #fff;
+            /* 배경색 */
+            border: 1px solid #ddd;
+            /* 테두리 */
+            border-radius: 10px;
+            /* 둥근 모서리 */
+            padding: 20px;
+            /* 내부 여백 */
+            margin: 20px auto;
+            /* 위와 아래에 여백을 주고 가운데 정렬 */
+            width: 80%;
+            /* 너비를 80%로 설정 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* 그림자 효과 */
+        }
+
+        .new-box h2 {
+            font-size: 2rem;
+            /* 제목 크기 */
+            color: #333;
+            /* 제목 색상 */
+            margin-bottom: 10px;
+            /* 제목과 내용 사이 여백 */
+        }
+
+        .new-box p {
+            font-size: 1rem;
+            /* 본문 크기 */
+            color: #666;
+            /* 본문 색상 */
+        }
+
+        .new-box2 {
+            background-color: #fff;
+            /* 배경색 */
+            border: 1px solid #ddd;
+            /* 테두리 */
+            border-radius: 10px;
+            /* 둥근 모서리 */
+            padding: 20px;
+            /* 내부 여백 */
+            margin: 20px auto;
+            /* 위와 아래에 여백을 주고 가운데 정렬 */
+            width: 80%;
+            /* 너비를 80%로 설정 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* 그림자 효과 */
+        }
+
+        .new-box2 h2 {
+            font-size: 2rem;
+            /* 제목 크기 */
+            color: #333;
+            /* 제목 색상 */
+            margin-bottom: 10px;
+        }
+
+        .new-box2 p {
+            font-size: 1rem;
+            /* 본문 크기 */
+            color: #666;
+            /* 본문 색상 */
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Commit5</h1>
+        <h4>깃허브를 잘 다루는 5조가 되기 위해서 선정하였다</h4>
+        <button class="addbtn">추가하기</button>
+        <button class="delbtn">삭제하기</button>
+    </header>
+    <section class="album">
+        <article class="card">
+            <img src="https://pimg.mk.co.kr/meet/neds/2009/11/image_readtop_2009_598845_1258601396213362.jpg"
+                alt="팀원 1">
+            <div class="card-info">
+                <h2>팀원 이름</h2>
+                <p>팀장</p>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://pimg.mk.co.kr/meet/neds/2009/11/image_readtop_2009_598845_1258601396213362.jpg"
+                alt="팀원 2">
+            <div class="card-info">
+                <h2>팀원 이름</h2>
+                <p>팀원</p>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://pimg.mk.co.kr/meet/neds/2009/11/image_readtop_2009_598845_1258601396213362.jpg"
+                alt="팀원 3">
+            <div class="card-info">
+                <h2>팀원 이름</h2>
+                <p>팀원</p>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://pimg.mk.co.kr/meet/neds/2009/11/image_readtop_2009_598845_1258601396213362.jpg"
+                alt="팀원 4">
+            <div class="card-info">
+                <h2>팀원 이름</h2>
+                <p>팀원</p>
+            </div>
+        </article>
+    </section>
+
+    <section class="new-box">
+        <h2>약속</h2>
+        <p> 1. 시간 약속을 철저히 지키겠습니다.<br><br>
+
+            2. 소통을 중요시하며 자리 비움이나 문제가 생기면 빠르게 공유하겠습니다.<br><br>
+
+            3. 실수나 문제가 있어도 남 탓하지말고 문제를 해결해나가는데 집중하겠습니다.<br><br>
+
+            4. 대화를 할 때는 종종 캠도 키고 화면공유도 잘 하겠습니다. <br><br>
+
+            5. 파이팅하겠습니다! </p>
+    </section>
+
+    <section class="new-box2">
+        <h2>최종 목표</h2>
+        <p> 1. 매일 일정 소화하기<br><br>
+
+            2. 부끄러워도 물어보기<br><br>
+
+            3. 이번 프로젝트 포트폴리오로 사용하기<br><br>
+
+            4. TIL 남은날까지 맨날 쓰기 📝
+        </p>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+
+
+</html>
