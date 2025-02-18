@@ -396,7 +396,9 @@
         $("#savecomment").click(async function () {
             let name = $('#name').val();
             let comment = $('#comment').val();
-            let date = new Date().toLocaleString();
+            let date = new Date().toISOString();  
+            // ISO 8601 형식으로 변환
+            // Firestore에 날짜를 저장할 때 언제 어디서든 일관된 형식을 유지하기 위해 사용
 
             if (!name || !comment) {
                 alert('이름과 댓글을 입력해주세요.');
@@ -422,13 +424,21 @@
             let docId = doc.id;
             let name = row['name'];
             let comment = row['comment'];
-            let date = row['date'];
+            let date = row['date'].split('T')[0];
+
+            // 문자열을 Date 객체로 변환 후, 한국 날짜 형식으로 변환
+            let formattedDate = new Date(date).toLocaleDateString("ko-KR", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            });
+            // date.toLocaleDateString("ko-KR", {...}) 를 사용하려면 date가 Date 객체여야 하므로 new Date(date)로 변환
 
             let temp_html = `
                 <div class="comment-box" id="${docId}">
                     <div class="savedname">${name}</div>
                     <div class="savedcomment">${comment}</div>
-                    <div class="saveddate">${date}</div>
+                    <div class="saveddate">${formattedDate}</div>
                     <button class="deletecomment" data-id="${docId}" id="deletecomment">delete</button>
                 </div>
                 `;
