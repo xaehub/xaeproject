@@ -424,10 +424,7 @@
             let docId = doc.id;
             let name = row['name'];
             let comment = row['comment'];
-            let date = row['date'].split('T')[0];
-
-            // 문자열을 Date 객체로 변환 후, 한국 날짜 형식으로 변환
-            let formattedDate = new Date(date).toLocaleDateString("ko-KR", {
+            let date = new Date(row['date']).toLocaleDateString("ko-KR", {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"
@@ -438,7 +435,7 @@
                 <div class="comment-box" id="${docId}">
                     <div class="savedname">${name}</div>
                     <div class="savedcomment">${comment}</div>
-                    <div class="saveddate">${formattedDate}</div>
+                    <div class="saveddate">${date}</div>
                     <button class="deletecomment" data-id="${docId}" id="deletecomment">delete</button>
                 </div>
                 `;
