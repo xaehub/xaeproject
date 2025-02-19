@@ -428,7 +428,7 @@
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"
-            });
+            }).replace(/\.$/, ""); // 끝에 있는 . 제거
             // date.toLocaleDateString("ko-KR", {...}) 를 사용하려면 date가 Date 객체여야 하므로 new Date(date)로 변환
 
             let temp_html = `
